@@ -1,0 +1,14 @@
+{
+  "name": "wxl095/umeng-push",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "wxl",
+      "email": "297750182@qq.com"
+    }
+  ],
+  "require": {
+  }
+}
