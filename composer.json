@@ -1,14 +1,14 @@
 {
-  "name": "wxl095/umeng_push",
-  "description": "description",
-  "minimum-stability": "stable",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "wxl",
-      "email": "297750182@qq.com"
-    }
-  ],
-  "require": {
-  }
+    "name": "wxl/umeng_push",
+    "description": "友盟推送",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wxl",
+            "email": "297750182@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
 }
