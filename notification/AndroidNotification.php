@@ -1,9 +1,9 @@
 <?php
 
-namespace umeng\notification;
+namespace umeng_push\notification;
 
 
-use umeng\PushException;
+use umeng_push\PushException;
 
 class AndroidNotification extends Notification
 {

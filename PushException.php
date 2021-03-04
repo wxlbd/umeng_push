@@ -1,7 +1,7 @@
 <?php
 
 
-namespace umeng;
+namespace umeng_push;
 
 
 use Exception;

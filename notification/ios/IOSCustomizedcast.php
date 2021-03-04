@@ -1,9 +1,9 @@
 <?php
 
-namespace umeng\notification\ios;
+namespace umeng_push\notification\ios;
 
-use umeng\notification\IOSNotification;
-use umeng\PushException;
+use umeng_push\notification\IOSNotification;
+use umeng_push\PushException;
 
 class IOSCustomizedcast extends IOSNotification
 {

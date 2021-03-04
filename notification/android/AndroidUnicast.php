@@ -1,8 +1,8 @@
 <?php
 
-namespace umeng\notification\android;
+namespace umeng_push\notification\android;
 
-use umeng\notification\AndroidNotification;
+use umeng_push\notification\AndroidNotification;
 
 
 class AndroidUnicast extends AndroidNotification
