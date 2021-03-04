@@ -10,7 +10,9 @@
     }
   ],
   "minimum-stability": "dev",
-  "require": {},
+  "require": {
+    "ext-json": "^1.7"
+  },
   "autoload": {
     "psr-4": {
       "umeng_push\\": "/",
