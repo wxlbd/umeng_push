@@ -10,11 +10,11 @@ composer require wxl/umeng_push dev-main
 
 ```php
         $unicast = new AndroidUnicast();
-        $unicast->setAppMasterSecret('qtj0zlwdpck94i9ojk9wprd2zetdggf0');
-        $unicast->setPredefinedKeyValue("appkey", '5fd3212cdd289153391a473d');
+        $unicast->setAppMasterSecret('xx');
+        $unicast->setPredefinedKeyValue("appkey", 'xx');
         $unicast->setPredefinedKeyValue("timestamp", (string)time());
         // Set your device tokens here
-        $unicast->setPredefinedKeyValue("device_tokens", "AskQeB7To7qGvM712DiXR3CZjPpaR5Q_sCBthUBtWt8s");
+        $unicast->setPredefinedKeyValue("device_tokens", "xx");
         $unicast->setPredefinedKeyValue("ticker", "Android unicast ticker");
         $unicast->setPredefinedKeyValue("title", "Android unicast title");
         $unicast->setPredefinedKeyValue("text", "Android unicast text");
@@ -29,11 +29,11 @@ composer require wxl/umeng_push dev-main
         print("Sent SUCCESS\r\n");
 
         $unicast = new IOSUnicast();
-        $unicast->setAppMasterSecret('cpt0wrbyqlsfvfaooeus9cmomvqjjebf');
-        $unicast->setPredefinedKeyValue("appkey", '5fd323a2dd289153391a5381');
+        $unicast->setAppMasterSecret('xx');
+        $unicast->setPredefinedKeyValue("appkey", 'xx');
         $unicast->setPredefinedKeyValue("timestamp", (string)time());
         // Set your device tokens here
-        $unicast->setPredefinedKeyValue("device_tokens", "d97e5d62a2a4b115fc6b3d11329da68da6abc022b87a2ee99145c285375f634e");
+        $unicast->setPredefinedKeyValue("device_tokens", "xx");
         $unicast->setPredefinedKeyValue("alert", "IOS 单播测试");
         $unicast->setPredefinedKeyValue("badge", 0);
         $unicast->setPredefinedKeyValue("sound", "chime");
