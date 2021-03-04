@@ -1,14 +1,22 @@
 {
-    "name": "wxl/umeng_push",
-    "description": "友盟推送",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "wxl",
-            "email": "297750182@qq.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {}
+  "name": "wxl/umeng_push",
+  "description": "友盟推送",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "wxl",
+      "email": "297750182@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "umeng_push\\": "/",
+      "umeng_push\\notification\\": "notification",
+      "umeng_push\\notification\\android\\": "notification/android",
+      "umeng_push\\notification\\ios\\": "notification/ios"
+    }
+  }
 }
