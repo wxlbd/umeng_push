@@ -21,6 +21,7 @@ class IOSCustomizedcast extends IOSNotification
         if (!array_key_exists("alias", $this->data) && !array_key_exists("file_id", $this->data)){
             throw new PushException("You need to set alias or upload file for customizedcast!");
         }
+        return true;
     }
 
 

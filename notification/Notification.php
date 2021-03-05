@@ -152,7 +152,7 @@ abstract class Notification
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        $this->result = curl_exec($ch);
+        $this->result = json_decode(curl_exec($ch), true);
         $this->httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $this->curlErrNo = curl_errno($ch);
         $this->curlErr = curl_error($ch);
@@ -225,5 +225,15 @@ abstract class Notification
     public function setType(string $type): void
     {
         $this->type = $type;
+    }
+
+    public function getResult(): array
+    {
+        return $this->result;
+    }
+
+    public function success(): bool
+    {
+        return $this->result['ret'] === 'SUCCESS';
     }
 }
