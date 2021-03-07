@@ -121,49 +121,61 @@ class AndroidNotification extends Notification
 
 
     /**
+     * 通知栏提示文字
      * @param $ticker
-     * @throws PushException
      */
     public function setTicker($ticker): void
     {
-        $this->setPredefinedKeyValue('ticker', $ticker);
+        $this->data["payload"]["body"]["ticker"] = $ticker;
     }
 
 
     /**
+     * 通知标题
      * @param $title
-     * @throws PushException
      */
     public function setTitle($title): void
     {
-        $this->setPredefinedKeyValue('title', $title);
+        $this->data["payload"]["body"]["title"] = $title;
     }
 
     /**
+     * 通知文字描述
      * @param $body
-     * @throws PushException
      */
     public function setBody($body): void
     {
-        $this->setPredefinedKeyValue('body', $body);
+        $this->data["payload"]["body"]["text"] = $body;
     }
 
     /**
+     * 点击"通知"的后续行为，默认为打开app
+     * "go_app": 打开应用
+     * "go_url": 跳转到URL
+     * "go_activity": 打开特定的activity
+     * "go_custom": 用户自定义内容。
      * @param $after_open
-     * @throws PushException
      */
     public function setAfterOpen($after_open = 'go_custom'): void
     {
-        $this->setPredefinedKeyValue('after_open', $after_open);
+        $this->data["payload"]["body"]["after_open"] = $after_open;
+        if ($after_open === 'go_custom') {
+            $this->data["payload"]["body"]["custom"] = null;
+        }
+        if ($after_open === 'go_url') {
+            $this->data["payload"]["body"]["url"] = null;
+        }
+        if ($after_open === 'go_activity') {
+            $this->data["payload"]["body"]["activity"] = null;
+        }
     }
 
     /**
      * 设置自定义的跳转类型
      * @param $custom
-     * @throws PushException
      */
     public function setCustom(array $custom): void
     {
-        $this->setPredefinedKeyValue('custom', json_encode($custom));
+        $this->data["payload"]["body"]["custom"] = json_encode($custom, JSON_UNESCAPED_UNICODE);
     }
 }
