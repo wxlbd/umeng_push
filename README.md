@@ -9,38 +9,28 @@ composer require wxl/umeng_push dev-main
 ## 使用
 
 ```php
-        $unicast = new AndroidUnicast();
-        $unicast->setAppMasterSecret('xx');
-        $unicast->setPredefinedKeyValue("appkey", 'xx');
-        $unicast->setPredefinedKeyValue("timestamp", (string)time());
-        // Set your device tokens here
-        $unicast->setPredefinedKeyValue("device_tokens", "xx");
-        $unicast->setPredefinedKeyValue("ticker", "Android unicast ticker");
-        $unicast->setPredefinedKeyValue("title", "Android unicast title");
-        $unicast->setPredefinedKeyValue("text", "Android unicast text");
-        $unicast->setPredefinedKeyValue("after_open", "go_app");
-        // Set 'production_mode' to 'false' if it's a test device.
-        // For how to register a test device, please see the developer doc.
-        $unicast->setPredefinedKeyValue("production_mode", "true");
-        // Set extra field
-        $unicast->setExtraField("test", "helloworld");
-        print("Sending unicast notification, please wait...\r\n");
-        $unicast->send();
-        print("Sent SUCCESS\r\n");
+        $android = new AndroidCustomizedcast();
+        $android->setAppMasterSecret('secret');
+        $android->setAppKey('appkey');
+        $android->setTimestamp(time());
+        $android->setAlias($data['users']);
+        $android->setTicker($data['ticker']);
+        $android->setTitle($data['title']);
+        $android->setBody($data['body']);
+        $android->setAfterOpen();
+        $android->setCustom($data['custom']);
+        $android->send();
 
-        $unicast = new IOSUnicast();
-        $unicast->setAppMasterSecret('xx');
-        $unicast->setPredefinedKeyValue("appkey", 'xx');
-        $unicast->setPredefinedKeyValue("timestamp", (string)time());
-        // Set your device tokens here
-        $unicast->setPredefinedKeyValue("device_tokens", "xx");
-        $unicast->setPredefinedKeyValue("alert", "IOS 单播测试");
-        $unicast->setPredefinedKeyValue("badge", 0);
-        $unicast->setPredefinedKeyValue("sound", "chime");
-        // Set 'production_mode' to 'true' if your app is under production mode
-        $unicast->setPredefinedKeyValue("production_mode", "false");
-        // Set customized fields
-        $unicast->setCustomizedField("test", "helloworld");
-//            print("Sending unicast notification, please wait...\r\n");
-        $unicast->send();
+        $ios = new IOSUnicast();
+        $ios->setAppMasterSecret('cpt0wrbyqlsfvfaooeus9cmomvqjjebf');
+        $ios->setAppKey('5fd323a2dd289153391a5381');
+        $ios->setPredefinedKeyValue("timestamp", (string)time());
+        $ios->setPredefinedKeyValue("device_tokens", "d97e5d62a2a4b115fc6b3d11329da68da6abc022b87a2ee99145c285375f634e");
+        $ios->setPredefinedKeyValue("alert", "IOS 单播测试");
+        $ios->setPredefinedKeyValue("badge", 0);
+        $ios->setPredefinedKeyValue("sound", "chime");
+        $ios->setPredefinedKeyValue("production_mode", "false");
+        $ios->setAfterOpen();
+        $ios->setCustom(['type' => 1, 'goods_id' => 123]);
+        $ios->send();
 ```
