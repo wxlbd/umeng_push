@@ -12,13 +12,13 @@ class IOSCustomizedcast extends IOSNotification
     {
         parent::__construct();
         $this->data["type"] = "customizedcast";
-        $this->data["alias_type"] = NULL;
+        $this->data["alias_type"] = 'ALIAS_TYPE_USERID';
     }
 
-    public function isComplete():bool
+    public function isComplete(): bool
     {
         parent::isComplete();
-        if (!array_key_exists("alias", $this->data) && !array_key_exists("file_id", $this->data)){
+        if (!array_key_exists("alias", $this->data) && !array_key_exists("file_id", $this->data)) {
             throw new PushException("You need to set alias or upload file for customizedcast!");
         }
         return true;

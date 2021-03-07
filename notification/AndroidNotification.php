@@ -118,4 +118,52 @@ class AndroidNotification extends Notification
         }
         $this->data["payload"]["extra"][$key] = $value;
     }
+
+
+    /**
+     * @param $ticker
+     * @throws PushException
+     */
+    public function setTicker($ticker): void
+    {
+        $this->setPredefinedKeyValue('ticker', $ticker);
+    }
+
+
+    /**
+     * @param $title
+     * @throws PushException
+     */
+    public function setTitle($title): void
+    {
+        $this->setPredefinedKeyValue('title', $title);
+    }
+
+    /**
+     * @param $body
+     * @throws PushException
+     */
+    public function setBody($body): void
+    {
+        $this->setPredefinedKeyValue('body', $body);
+    }
+
+    /**
+     * @param $after_open
+     * @throws PushException
+     */
+    public function setAfterOpen($after_open = 'go_custom'): void
+    {
+        $this->setPredefinedKeyValue('after_open', $after_open);
+    }
+
+    /**
+     * 设置自定义的跳转类型
+     * @param $custom
+     * @throws PushException
+     */
+    public function setCustom(array $custom): void
+    {
+        $this->setPredefinedKeyValue('custom', json_encode($custom));
+    }
 }

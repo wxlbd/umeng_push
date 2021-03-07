@@ -236,4 +236,43 @@ abstract class Notification
     {
         return $this->result['ret'] === 'SUCCESS';
     }
+
+    /**
+     * @param $app_key
+     */
+    public function setAppKey($app_key): void
+    {
+        $this->setPredefinedKeyValue('appkey', $app_key);
+    }
+
+    /**
+     * @param $timestamp
+     */
+    public function setTimestamp($timestamp): void
+    {
+        $this->setPredefinedKeyValue('timestamp', (string)$timestamp);
+    }
+
+    public function setAlias($alias): void
+    {
+        $this->setPredefinedKeyValue('alias', $alias);
+    }
+
+    /**
+     * @param $production_mode
+     */
+    public function setProductionMode($production_mode): void
+    {
+        $this->setPredefinedKeyValue('production_mode', $production_mode);
+    }
+
+    public function setAfterOpen(string $after_open = 'go_custom'): void
+    {
+
+    }
+
+    public function setCustom(array $custom): void
+    {
+
+    }
 }
