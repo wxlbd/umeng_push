@@ -22,10 +22,10 @@ composer require wxl/umeng_push dev-main
         $android->send();
 
         $ios = new IOSUnicast();
-        $ios->setAppMasterSecret('cpt0wrbyqlsfvfaooeus9cmomvqjjebf');
-        $ios->setAppKey('5fd323a2dd289153391a5381');
+        $ios->setAppMasterSecret('secret');
+        $ios->setAppKey('appkey');
         $ios->setPredefinedKeyValue("timestamp", (string)time());
-        $ios->setPredefinedKeyValue("device_tokens", "d97e5d62a2a4b115fc6b3d11329da68da6abc022b87a2ee99145c285375f634e");
+        $ios->setPredefinedKeyValue("device_tokens", "token");
         $ios->setPredefinedKeyValue("alert", "IOS 单播测试");
         $ios->setPredefinedKeyValue("badge", 0);
         $ios->setPredefinedKeyValue("sound", "chime");
