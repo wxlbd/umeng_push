@@ -21,16 +21,16 @@ composer require wxl/umeng_push dev-main
         $android->setCustom($data['custom']);
         $android->send();
 
-        $ios = new IOSUnicast();
+        $ios = new IOSCustomizedcast();
         $ios->setAppMasterSecret('secret');
         $ios->setAppKey('appkey');
-        $ios->setPredefinedKeyValue("timestamp", (string)time());
-        $ios->setPredefinedKeyValue("device_tokens", "token");
-        $ios->setPredefinedKeyValue("alert", "IOS 单播测试");
-        $ios->setPredefinedKeyValue("badge", 0);
-        $ios->setPredefinedKeyValue("sound", "chime");
-        $ios->setPredefinedKeyValue("production_mode", "false");
+        $ios->setTimestamp(time());
+        $ios->setAlias($data['users']);
+        $ios->setTitle($data['ticker']);
+        $ios->setSubtitle($data['title']);
+        $ios->setBody($data['body']);
+        $ios->setProductionMode(false);
         $ios->setAfterOpen();
-        $ios->setCustom(['type' => 1, 'goods_id' => 123]);
+        $ios->setCustom($data['custom']);
         $ios->send();
 ```
