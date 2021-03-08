@@ -99,16 +99,24 @@ class IOSNotification extends Notification
         $this->setPredefinedKeyValue('alert', $alert);
     }
 
+    /**
+     * @param string $title
+     */
     public function setTitle(string $title): void
     {
         $this->data['payload']['aps']['alert']['title'] = $title;
     }
-
+    /**
+     * @param string $subtitle
+     */
     public function setSubtitle(string $subtitle): void
     {
         $this->data['payload']['aps']['alert']['subtitle'] = $subtitle;
     }
 
+    /**
+     * @param string $body
+     */
     public function setBody(string $body): void
     {
         $this->data['payload']['aps']['alert']['body'] = $body;
