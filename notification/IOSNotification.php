@@ -10,7 +10,11 @@ class IOSNotification extends Notification
     // The array for payload, please see API doc for more information
     protected $iosPayload = [
         "aps" => [
-            "alert" => NULL
+            "alert" => [
+                'title' => 'title',
+                'subtitle' => 'subtitle',
+                'body' => 'body'
+            ],
             //"badge"				=>  xx,
             //"sound"				=>	"xx",
             //"content-available"	=>	xx
@@ -68,7 +72,6 @@ class IOSNotification extends Notification
     }
 
 
-
     /**
      * @param string $after_open
      * @throws PushException
@@ -94,5 +97,20 @@ class IOSNotification extends Notification
     public function setAlert($alert): void
     {
         $this->setPredefinedKeyValue('alert', $alert);
+    }
+
+    public function setTitle(string $title): void
+    {
+        $this->data['payload']['aps']['alert']['title'] = $title;
+    }
+
+    public function setSubtitle(string $subtitle): void
+    {
+        $this->data['payload']['aps']['alert']['subtitle'] = $subtitle;
+    }
+
+    public function setBody(string $body): void
+    {
+        $this->data['payload']['aps']['alert']['body'] = $body;
     }
 }
