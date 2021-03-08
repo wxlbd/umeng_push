@@ -234,15 +234,15 @@ abstract class Notification
 
     public function success(): bool
     {
-        return $this->result['ret'] === 'SUCCESS';
+        return (string)$this->httpCode === '200';
     }
 
     /**
      * @param $app_key
      */
-    public function setAppKey($app_key): void
+    public function setAppKey(string $app_key): void
     {
-        $this->setPredefinedKeyValue('appkey', $app_key);
+        $this->data['app_key'] = $app_key;
     }
 
     /**
@@ -250,20 +250,20 @@ abstract class Notification
      */
     public function setTimestamp($timestamp): void
     {
-        $this->setPredefinedKeyValue('timestamp', (string)$timestamp);
+        $this->data['timestamp'] = (string)$timestamp;
     }
 
     public function setAlias($alias): void
     {
-        $this->setPredefinedKeyValue('alias', $alias);
+        $this->data['alias'] = $alias;
     }
 
     /**
      * @param $production_mode
      */
-    public function setProductionMode($production_mode): void
+    public function setProductionMode(bool $production_mode = true): void
     {
-        $this->setPredefinedKeyValue('production_mode', $production_mode);
+        $this->data['production_mode'] = $production_mode;
     }
 
     public function setAfterOpen(string $after_open = 'go_custom'): void
@@ -274,5 +274,10 @@ abstract class Notification
     public function setCustom(array $custom): void
     {
 
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->data['description'] = $description;
     }
 }
