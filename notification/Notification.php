@@ -242,7 +242,7 @@ abstract class Notification
      */
     public function setAppKey(string $app_key): void
     {
-        $this->data['app_key'] = $app_key;
+        $this->data['appkey'] = $app_key;
     }
 
     /**
