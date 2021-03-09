@@ -107,15 +107,11 @@ class AndroidNotification extends Notification
     // Set extra key/value for Android notification
 
     /**
-     * @param $key
+     * @param string $key
      * @param $value
-     * @throws PushException
      */
-    public function setExtraField($key, $value): void
+    public function setExtraField(string $key, $value): void
     {
-        if (!is_string($key)) {
-            throw new PushException("key should be a string!");
-        }
         $this->data["payload"]["extra"][$key] = $value;
     }
 
@@ -176,6 +172,6 @@ class AndroidNotification extends Notification
      */
     public function setCustom(array $custom): void
     {
-        $this->data["payload"]["body"]["custom"] = json_encode($custom, JSON_UNESCAPED_UNICODE);
+        $this->data["payload"]["body"]["custom"] = $custom;
     }
 }

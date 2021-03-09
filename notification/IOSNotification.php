@@ -74,29 +74,26 @@ class IOSNotification extends Notification
 
     /**
      * @param string $after_open
-     * @throws PushException
      */
     public function setAfterOpen(string $after_open = 'go_custom'): void
     {
-        $this->setCustomizedField('after_open', $after_open);
+        $this->data["payload"]['after_open'] = $after_open;
     }
 
     /**
      * @param array $custom
-     * @throws PushException
      */
     public function setCustom(array $custom): void
     {
-        $this->setCustomizedField('custom', json_encode($custom));
+        $this->data["payload"]['custom'] = $custom;
     }
 
     /**
      * @param $alert
-     * @throws PushException
      */
     public function setAlert($alert): void
     {
-        $this->setPredefinedKeyValue('alert', $alert);
+        $this->data['payload']['aps']['alert'] = $alert;
     }
 
     /**
